@@ -33,7 +33,7 @@ config = Config()
 
 with open("{}/{}".format(config.data_cache_path, config.input_file), "r") as in_file:
     with open("{}/{}".format(config.data_cache_path, config.output_file), "w") as out_file:
-        first_line = in_file.readline()
+        first_line = in_file.readline().strip()
         first_line = first_line.split(config.delimiter)
         time_col_num = first_line.index(config.time_column)
         for line in in_file:
