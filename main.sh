@@ -43,7 +43,7 @@ if python -u file_merge.py "$data_cache" "$merge_file"; then
             head -5 "$data_cache/${merge_file}_2"
             let col_num=col_num-1
             echo "removing unix timestamps ..."
-            if cut -d ";" -f "1"-$col_num "$data_cache/${merge_file}_2" > "$data_cache/${merge_file}_3"; then
+            if cut -d $delimiter -f "1"-$col_num "$data_cache/${merge_file}_2" > "$data_cache/${merge_file}_3"; then
                 head -5 "$data_cache/${merge_file}_3"
                 first_line=$(head -n 1 "$data_cache/$merge_file")
                 echo "merging lines ..."
